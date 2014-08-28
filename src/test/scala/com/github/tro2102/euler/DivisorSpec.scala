@@ -1,6 +1,7 @@
 package com.github.tro2102.euler
 
 import com.github.tro2102.BaseSpec
+import com.github.tro2102.euler.math.DivisorCalculator
 
 /**
  * Created on 8/28/14.

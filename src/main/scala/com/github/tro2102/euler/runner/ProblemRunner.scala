@@ -1,6 +1,6 @@
 package com.github.tro2102.euler.runner
 
-import com.github.tro2102.euler.DivisorCalculator
+import com.github.tro2102.euler.math.DivisorCalculator
 
 /**
  * Created on 8/28/14.
@@ -8,11 +8,11 @@ import com.github.tro2102.euler.DivisorCalculator
  */
 trait ProblemRunner {
 
-  sealed def run: Long = {
+  final def run: (Double, String) = {
     val t0 = System.nanoTime()
-    print(runImpl)
+    val results = runImpl
     val t1 = System.nanoTime()
-    t1 - t0
+    ((t1 - t0) / 1000000d, results)
   }
 
   def runImpl: String
@@ -21,7 +21,7 @@ trait ProblemRunner {
 object ProblemRunner {
   def apply(num: Int): ProblemRunner = {
     num match {
-      case 1 => new Problem1()
+      case 1 => new Problem1
       case _ => throw new NotImplementedError(s"No implementation for Problem #$num")
     }
   }

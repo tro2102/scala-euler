@@ -1,4 +1,4 @@
-package com.github.tro2102.euler
+package com.github.tro2102.euler.math
 
 import com.github.tro2102.euler.decorator.DivisibleInts
 
