@@ -9,7 +9,6 @@ import com.github.tro2102.euler.decorator.DivisibleInts
 object DivisorCalculator extends DivisibleInts {
 
   object Range {
-
     /**
      * Returns sum of all integers between range divisible by any of the passed-in divisors
      *
