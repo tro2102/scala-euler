@@ -12,7 +12,7 @@ trait ProblemRunner {
     val t0 = System.nanoTime()
     print(runImpl)
     val t1 = System.nanoTime()
-    t1 - 10
+    t1 - t0
   }
 
   def runImpl: String
