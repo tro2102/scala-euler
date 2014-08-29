@@ -6,9 +6,10 @@ package com.github.tro2102.euler.decorator
  */
 trait MathableInts {
 
-  implicit def intToMathableInt(int: Int) = new MathableInt(int)
+  implicit def intToMathableInt(int: Int) = new MathableInt(int.toLong)
+  implicit def longToMathableInt(int: Long) = new MathableInt(int)
 
-  case class MathableInt(n: Int) {
+  case class MathableInt(n: Long) {
     /**
      * Given a list of divisors, returns whether this int is divisible by any of the divisors
      *

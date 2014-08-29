@@ -12,14 +12,14 @@ object FactorCalculator extends MathableInts {
    * @param n
    * @return
    */
-  def findAll(n: Int) : Seq[Int] = {
+  def findAll(n: Long) : Seq[Long] = {
     val sqrt = Math.sqrt(n)
     (
       if (n % sqrt == 0)
-        Seq((n/sqrt).toInt)
+        Seq((n/sqrt).toLong)
       else
-        Seq[Int]()
-      ) ++: (for (i <- 1 until Math.sqrt(n).toInt
+        Seq[Long]()
+      ) ++: (for (i <- 1l until Math.sqrt(n).toLong
                   if n %
                     i == 0) yield List(i, n / i))
       .flatten
@@ -30,7 +30,7 @@ object FactorCalculator extends MathableInts {
    * @param n
    * @return
    */
-  def findPrime(n: Int) : Seq[Int] = {
+  def findPrime(n: Long) : Seq[Long] = {
     findAll(n).filter( x => x.isPrime )
   }
 }

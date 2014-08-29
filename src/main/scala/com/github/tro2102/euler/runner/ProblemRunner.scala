@@ -1,6 +1,6 @@
 package com.github.tro2102.euler.runner
 
-import com.github.tro2102.euler.math.{Fibonacci, DivisorCalculator}
+import com.github.tro2102.euler.math.{FactorCalculator, Fibonacci, DivisorCalculator}
 
 /**
  * Created on 8/28/14.
@@ -23,6 +23,7 @@ object ProblemRunner {
     num match {
       case 1 => new Problem1
       case 2 => new Problem2
+      case 3 => new Problem3
       case _ => throw new NotImplementedError(s"No implementation for Problem #$num")
     }
   }
@@ -33,5 +34,9 @@ object ProblemRunner {
   private class Problem2 extends ProblemRunner {
     override def runImpl: String =
       DivisorCalculator.List.sum(Fibonacci.generateUpTo(List(2,1), 4000000), 2).toString
+  }
+  private class Problem3 extends ProblemRunner {
+    override def runImpl: String =
+      FactorCalculator.findPrime(600851475143l).max.toString
   }
 }
