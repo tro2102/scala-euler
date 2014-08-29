@@ -5,8 +5,8 @@ import com.github.tro2102.BaseSpec
  * Created on 8/28/14.
  * @author Taylor Owens
  */
-class DivisibleIntSpec extends BaseSpec with DivisibleInts {
-  "A Divisible Int" should "know if it's divisible by a single int" in {
+class MathableIntSpec extends BaseSpec with MathableInts {
+  "A Mathable Int" should "know if it's divisible by a single int" in {
     10.isDivisible(1) shouldBe true
     10.isDivisible(7) shouldBe false
   }

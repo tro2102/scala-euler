@@ -1,12 +1,12 @@
 package com.github.tro2102.euler.math
 
-import com.github.tro2102.euler.decorator.DivisibleInts
+import com.github.tro2102.euler.decorator.MathableInts
 
 /**
  * Created on 8/28/14.
  * @author Taylor Owens
  */
-object DivisorCalculator extends DivisibleInts {
+object DivisorCalculator extends MathableInts {
 
   object Range {
     /**
