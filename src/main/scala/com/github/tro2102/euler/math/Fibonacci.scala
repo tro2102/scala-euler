@@ -12,5 +12,4 @@ object Fibonacci {
       initList
     else generateUpTo(initList.+:(nextValue), maxValue)
   }
-
 }

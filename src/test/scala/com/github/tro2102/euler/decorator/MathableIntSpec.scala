@@ -19,4 +19,10 @@ class MathableIntSpec extends BaseSpec with MathableInts {
   it should "handle an empy list gracefully" in {
     10.isDivisible() shouldBe false
   }
+
+  it should "know if it's palindromic" in {
+    10.isPalindromic shouldBe false
+    101.isPalindromic shouldBe true
+    1.isPalindromic shouldBe true
+  }
 }

@@ -38,6 +38,7 @@ trait MathableInts {
       }
       true
     }
-  }
 
+    def isPalindromic: Boolean = n.toString.equals(n.toString.reverse)
+  }
 }

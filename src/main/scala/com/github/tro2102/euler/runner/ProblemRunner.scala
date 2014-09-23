@@ -1,5 +1,6 @@
 package com.github.tro2102.euler.runner
 
+import com.github.tro2102.euler.decorator.MathableInts
 import com.github.tro2102.euler.math.{FactorCalculator, Fibonacci, DivisorCalculator}
 
 /**
@@ -24,6 +25,7 @@ object ProblemRunner {
       case 1 => new Problem1
       case 2 => new Problem2
       case 3 => new Problem3
+      case 4 => new Problem4
       case _ => throw new NotImplementedError(s"No implementation for Problem #$num")
     }
   }
@@ -38,5 +40,11 @@ object ProblemRunner {
   private class Problem3 extends ProblemRunner {
     override def runImpl: String =
       FactorCalculator.findPrime(600851475143l).max.toString
+  }
+  private class Problem4 extends ProblemRunner with MathableInts {
+    override def runImpl: String = {
+      (for( i <- 100 to 999;
+           j <- 100 to 999 if (i * j).isPalindromic) yield i * j).max.toString
+    }
   }
 }
