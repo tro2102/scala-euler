@@ -27,16 +27,15 @@ object FactorCalculator extends MathableInts {
   }
 
   /**
-   * For a given integer, find all integer divisors, unordered
+   * For a given integer, find all prime divisors, unordered
    * @param n
    * @return
    */
   def findPrime(n: Long): Seq[Long] = {
     if (n.isPrime) return Seq(n)
-    for (i <- 2l to Math.sqrt(n).toLong
-            if n % i == 0)
-      return findPrime(i) ++ findPrime(n/i)
-    Seq()
+    (2l to Math.sqrt(n).toLong).find(i => n % i == 0).map( x =>
+      findPrime(x) ++ findPrime(n/x)
+    ).getOrElse(Seq())
   }
 
   def findPrimeCounts(n: Long): Map[Long, Int] = {
