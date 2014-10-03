@@ -1,6 +1,7 @@
 package com.github.tro2102.euler.math
 
 import com.github.tro2102.euler.decorator.MathableInts
+import scala.collection.Map
 
 /**
  * Created by tro2102 on 8/28/2014.
@@ -19,7 +20,7 @@ object FactorCalculator extends MathableInts {
         Seq((n/sqrt).toLong)
       else
         Seq[Long]()
-      ) ++: (for (i <- 1l until Math.sqrt(n).toLong
+    ) ++: (for (i <- 1l until Math.sqrt(n).toLong
                   if n %
                     i == 0) yield List(i, n / i))
       .flatten
@@ -30,7 +31,16 @@ object FactorCalculator extends MathableInts {
    * @param n
    * @return
    */
-  def findPrime(n: Long) : Seq[Long] = {
-    findAll(n).filter( x => x.isPrime )
+  def findPrime(n: Long): Seq[Long] = {
+    if (n.isPrime) return Seq(n)
+    for (i <- 2l to Math.sqrt(n).toLong
+            if n % i == 0)
+      return findPrime(i) ++ findPrime(n/i)
+    Seq()
+  }
+
+  def findPrimeCounts(n: Long): Map[Long, Int] = {
+    findPrime(n).foldLeft(Map[Long, Int]())( (r, c) => r + ((c, r.getOrElse(c, 0) + 1)))
   }
 }
+
